@@ -1,15 +1,6 @@
 import collections
-from iso639 import languages
 def get_language_code(language):
-    to_try = [languages.name, languages.inverted, languages.part1]
-    l_to_try = [language.capitalize(), language.lower()]
-    for l in l_to_try:
-        for t in to_try:
-            if l in t:
-                if not t[l].part1:
-                    continue
-                return t[l].part1
-    raise Exception('Language %s not recognized. Try the iso-639 code.' % language)
+    return language
 
 def multilingual_params(language, **kwargs):
     language_code = get_language_code(language)
